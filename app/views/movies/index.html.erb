@@ -14,7 +14,7 @@
   <tbody>
     <% @movies.each do |movie| %>
     <tr>
-      <td>#</td>
+      <td><%= movie.id %></td>
       <td><%= link_to(movie.title, movie_path(movie)) %></td>
       <td><%= movie.created_at %></td>
       <td>
