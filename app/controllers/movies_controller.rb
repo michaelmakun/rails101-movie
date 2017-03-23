@@ -61,7 +61,7 @@ class MoviesController < ApplicationController
 
     if current_user.movie_favorite?(@movie)
       current_user.unlike!(@movie)
-      flash[:notice] = "取消收藏"
+      flash[:alert] = "取消收藏"
     else
       flash[:warning] = "没有收藏，不用取消"
     end
