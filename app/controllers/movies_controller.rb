@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
-    @reviews = @movie.reviews
+    @reviews = @movie.reviews.all.recent.paginate(:page => params[:page], :per_page => 5)
   end
 
   def new
