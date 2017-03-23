@@ -1,0 +1,27 @@
+<div class="pull-right">
+  <%= link_to("增加电影", new_movie_path(@movie), class: :"btn btn-primary btn-sm") %>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>电影名</th>
+      <th>上映时间</th>
+      <th>管理选项</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+    <tr>
+      <td>#</td>
+      <td><%= link_to(movie.title, movie_path(movie)) %></td>
+      <td><%= movie.created_at %></td>
+      <td>
+        <%= link_to("编缉电影", edit_movie_path(movie), class: :"btn btn-success btn-xs") %>
+        <%= link_to("删除电影", movie_path(movie), method: :delete, class: :"btn btn-danger btn-xs") %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
