@@ -41,7 +41,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.update(review_params)
-      redirect_to movie_reviews_path
+      redirect_to movie_path(@movie)
     else
       render :edit
     end
