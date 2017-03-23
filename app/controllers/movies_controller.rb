@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @movies = Movie.all.order("created_at DESC")
+    @movies = Movie.all.recent
   end
 
   def show

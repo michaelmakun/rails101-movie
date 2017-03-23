@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 
   def index
     @movie = Movie.find(params[:movie_id])
-    @review = Review.all.order("created_at DESC")
+    @review = Review.all.recent
   end
 
   def show
