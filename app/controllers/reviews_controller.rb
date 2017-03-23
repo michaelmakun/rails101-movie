@@ -41,7 +41,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.update(review_params)
-      redirect_to movie_path(@movie)
+      redirect_to account_reviews_path, alert: "评论更新成功"
     else
       render :edit
     end
@@ -51,7 +51,7 @@ class ReviewsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @review = Review.find(params[:id])
     @review.destroy
-    redirect_to movie_reviews_path
+    redirect_to account_reviews_path, alert: "评论删除成功"
   end
 
   private

@@ -1,0 +1,27 @@
+<div class="col-md-12">
+
+  <h2 class="text-center">我发表的评论</h2>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>电影名</th>
+        <th colspan="2">上映时间</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reviews.each do |review| %>
+        <tr>
+          <td>#</td>
+          <td><%= review.movie.title %></td>
+          <td><%= review.updated_at %></td>
+          <td>
+            <%= link_to("编缉评论", edit_movie_review_path(review.movie, review), class: :"btn btn-success btn-xs") %>
+            <%= link_to("删除评论", movie_review_path(review.movie, review), method: :delete, class: :"btn btn-danger btn-xs") %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

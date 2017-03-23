@@ -9,5 +9,10 @@ Rails.application.routes.draw do
       post :unlike
     end
   end
+
+  namespace :account do
+    resources :reviews
+    resources :movies
+  end
   root 'movies#index'
 end
