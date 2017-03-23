@@ -8,6 +8,7 @@
       <th>#</th>
       <th>电影名</th>
       <th>上映时间</th>
+      <th>创建者</th>
       <th>管理选项</th>
     </tr>
   </thead>
@@ -17,6 +18,7 @@
       <td><%= movie.id %></td>
       <td><%= link_to(movie.title, movie_path(movie)) %></td>
       <td><%= movie.created_at %></td>
+      <td><%= movie.user.email %></td>
       <td>
         <%= link_to("编缉电影", edit_movie_path(movie), class: :"btn btn-success btn-xs") %>
         <%= link_to("删除电影", movie_path(movie), method: :delete, class: :"btn btn-danger btn-xs") %>
