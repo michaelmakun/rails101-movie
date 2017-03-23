@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   resources :movies do
     resources :reviews
+    member do
+      post :favorite
+      post :unlike
+    end
   end
   root 'movies#index'
 end
