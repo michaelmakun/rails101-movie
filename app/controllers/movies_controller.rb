@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @movies = Movie.all.recent
+    @movies = Movie.all.recent.paginate(:page => params[:page], :per_page => 5)
   end
 
   def show

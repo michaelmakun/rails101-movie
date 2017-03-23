@@ -29,3 +29,7 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="text-center col-md-12 pagination">
+  <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+</div>

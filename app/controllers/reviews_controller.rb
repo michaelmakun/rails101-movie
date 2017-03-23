@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 
   def index
     @movie = Movie.find(params[:movie_id])
-    @review = Review.all.recent
+    @review = Review.all.recent.paginate(:page => params[:page], :per_page => 5)
   end
 
   def show
@@ -41,7 +41,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.update(review_params)
-      redirect_to account_reviews_path, alert: "评论更新成功"
+      redirect_to account_reviews_path, notice: "评论更新成功"
     else
       render :edit
     end
