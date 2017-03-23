@@ -1,5 +1,7 @@
 <div class="pull-right">
-  <%= link_to("增加电影", new_movie_path(@movie), class: :"btn btn-primary btn-sm") %>
+  <% if current_user %>
+    <%= link_to("增加电影", new_movie_path(@movie), class: :"btn btn-primary btn-sm") %>
+  <% end %>
 </div>
 
 <table class="table table-bordered">

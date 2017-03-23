@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @movies = Movie.all.recent.paginate(:page => params[:page], :per_page => 5)
   end
